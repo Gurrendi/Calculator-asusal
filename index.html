@@ -1,0 +1,39 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js" integrity="sha512-8Z5++K1rB3U+USaLKG6oO8uWWBhdYsM3hmdirnOEWp8h2B1aOikj5zBzlXs8QOrvY9OxEnD2QDkbSKKpfqcIWw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>My Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section>
+        <div class="container">
+            <input type="text" class="txtbox" id="display" disabled>
+            <div class="buttons">
+                <button id="Clear" onclick="clearScreen()">C</button>
+                <button value="/" id="divv">/</button>
+                <button value="*" id="multi">*</button>
+                <button  id="del" onclick="subtract()">&larr;</button>
+                <button value="7" id="7">7</button>
+                <button value="8" id="8">8</button>
+                <button value="9" id="9">9</button>
+                <button value="-" id="subt">-</button>
+                <button value="4" id="4">4</button>
+                <button value="5" id="5">5</button>
+                <button value="6" id="6">6</button>
+                <button value="+" id="add">+</button>
+                <button value="1" id="1">1</button>
+                <button value="2" id="2">2</button>
+                <button value="3" id="3">3</button>
+                <button value="." id="doto">.</button>	
+                <button id="plus-minus-btn">+/-</button>
+                <button value="0" id="0">0</button>
+                <button id="parentheses-btn">()</button>
+                <button value="=" id="equal" onclick="calculate();">=</button>
+            </div>
+        </div>
+    </section>
+    <script src="wa.js"></script>
+</body>
+</html>
