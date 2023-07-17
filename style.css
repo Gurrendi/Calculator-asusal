@@ -45,6 +45,11 @@ button {
     background-color: rgb(85, 85, 255);
     color: white;
 }
+#equal:hover{
+    background-color: #323330;
+    color: white;
+    transition: 0.5s ease-in-out;
+}
 
 button:hover {
     background-color: #323330;
