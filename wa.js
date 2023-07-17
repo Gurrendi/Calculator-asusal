@@ -7,7 +7,7 @@ function subtract() {
 			input.val(input.val().substring(0, input.val().length - 1));
 		}
 	}
-	function calculate(){
+function calculate(){
 		try {
 			let input = $('#display').val();
 			// evaluate the input string using the built-in `eval()` function
@@ -34,6 +34,8 @@ function clearScreen(){
 $(document).ready(function() {
 	let operatorRegex = /[+\-*/]/g;
 	var isOpen = false; // flag to track whether the parentheses are open or closed
+	var maxLength = 20; // maximum input length
+
 	//Prevent multiple input of operator on keyboard
 	$("#display").on("keydown", function(event) {
   		var operatorKeys = ["+", "-", "*", "/", "%"]; // array of operator keys
@@ -50,7 +52,9 @@ $(document).ready(function() {
     $('#1,#2,#3,#4,#5,#6,#7,#8,#9,#0').on('click',function(){
 		input=$('#display').val();
 		let value = $(this).val();
-    	$('#display').val(input + value);
+    	if (input.length < maxLength) {
+    		$('#display').val(input + value);
+		}
 	});
 	//Prevent multiple input of operator
 	$('#add,#subt,#multi,#divv,#doto,#lbra,#rbra').on('click',function(){
@@ -62,28 +66,38 @@ $(document).ready(function() {
 			if (!isNaN(lastChar) || lastChar === ')') {
 			let decimalIndex = input.lastIndexOf('.');// check if the input string already contains a decimal point
 			if (decimalIndex === -1 || decimalIndex < input.lastIndexOf(operatorRegex)) {
-				$('#display').val(input + value);
+				if (input.length < maxLength) {
+					$('#display').val(input + value);
+				}
 			}
 			}
 		} else {
 			if (!isNaN(lastChar) || lastChar === ')' || lastChar === '.') {
-			$('#display').val(input + value);
+				if (input.length < maxLength) {
+					$('#display').val(input + value);
+				}
 			} else if (value === '(') {
-			$('#display').val(input + value);
+				if (input.length < maxLength) {
+					$('#display').val(input + value);
+				}
 			} else if (value === ')') {
-			// Ensure that the opening and closing parentheses are balanced
-			let numOpenParens = input.split('(').length - 1;
-			let numCloseParens = input.split(')').length - 1;
-			if (numOpenParens > numCloseParens && !isNaN(lastChar)) {
-				$('#display').val(input + value);
+				// Ensure that the opening and closing parentheses are balanced
+				let numOpenParens = input.split('(').length - 1;
+				let numCloseParens = input.split(')').length - 1;
+				if (numOpenParens > numCloseParens && !isNaN(lastChar)) {
+					if (input.length < maxLength) {
+						$('#display').val(input + value);
+					}
 				}
 			} else if (operatorRegex.test(value)) {
-			// Ensure that the last character is a number or a closing parenthesis
-			if (!isNaN(lastChar) || lastChar === ')') {
-				$('#display').val(input + value);
+				// Ensure that the last character is a number or a closing parenthesis
+				if (!isNaN(lastChar) || lastChar === ')') {
+					if (input.length < maxLength) {
+						$('#display').val(input + value);
+					}
 				}
 			}
-	}
+		}
 	});
 
 	$('#parentheses-btn').click(function() {
