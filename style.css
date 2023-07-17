@@ -2,13 +2,14 @@ body{
     background-color: #55FFAA;
 }
 .container {
+    min-width: 410px;
     max-width: 410px;
     margin: 10vh auto 0 auto;
     box-shadow: 0px 0px 43px 17px rgba(153,153,153,1);
 }
 .txtbox{
     text-align: right;
-    height: 100px;
+    /* height: 100px; */
     line-height: 100px;
     font-size: 17px;  
 }
@@ -18,7 +19,7 @@ input[type="text"]:disabled {
 }
 .buttons {
     display: grid;
-    border-bottom: 1px solid #999;
+    border-bottom: 1px solid #a81919;
     border-left: 1px solid#999;
     grid-template-columns: 1fr 1fr 1fr 1fr;
 }
@@ -29,6 +30,7 @@ input[type="text"]:disabled {
 }
 
 button {
+    background-color:#FFAA55;
     border: 0.5px solid #999;
     line-height: 100px;
     text-align: center;

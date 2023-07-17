@@ -7,19 +7,24 @@ function subtract() {
 			input.val(input.val().substring(0, input.val().length - 1));
 		}
 	}
-function calculate(){
-		let input = $('#display').val();
-		// evaluate the input string using the built-in `eval()` function
-		let result = eval(input);
-		// check if the result is finite
-		if (isFinite(result)) {
-		  // round the result to 2 decimal places
-		  result = Math.round(result * 100) / 100;
-		  // update the input box with the result
-		  $('#display').val(result);
-		} else {
-		  // display an error message in the input box
-		  $('#display').val('Error');
+	function calculate(){
+		try {
+			let input = $('#display').val();
+			// evaluate the input string using the built-in `eval()` function
+			let result = eval(input);
+			// check if the result is finite
+			if (isFinite(result)) {
+				// round the result to 5 decimal places
+			result = Math.round(result * 100000) / 100000;
+				// update the input box with the result
+				$('#display').val(result);
+			} else {
+				// display an error message in the input box
+				$('#display').val('Error');
+			}
+		} catch (error) {
+			// display an error message in the input box
+			$('#display').val('Error');
 		}
 	}
 function clearScreen(){
@@ -92,7 +97,7 @@ $(document).ready(function() {
 		}
 	});
 	$('#plus-minus-btn').click(function() {
-		var textarea = $('#display')[0]; // get the DOM element for the text area
+		var textarea = $('#display')[0]; 
 		var start = textarea.selectionStart; // get the start cursor position
 		var end = textarea.selectionEnd; // get the end cursor position
 		var text = textarea.value; // get the current value of the text area
