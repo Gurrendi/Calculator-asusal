@@ -56,7 +56,7 @@ $(document).ready(function() {
     		$('#display').val(input + value);
 		}
 	});
-	//Prevent multiple input of operator
+	//Display & Prevent multiple input of operator
 	$('#add,#subt,#multi,#divv,#doto,#lbra,#rbra').on('click',function(){
 		let input = $('#display').val();
 		let value = $(this).val();
@@ -150,7 +150,7 @@ $(document).ready(function() {
 	  });
 	
 
-	// add event listener for keydown event on document
+	//for keydown event on document
 	$(document).on('keydown', function(event) {
 	let key = event.key;  // get the key that was pressed
 	// map the key presses to the corresponding button clicks
